@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Your Favorite Book</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <header class="bg-indigo-600 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-lg font-bold">Book Haven</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="/dashboard" class="hover:underline">Dashboard</a></li>
+          <li><a href="/logout" class="hover:underline">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto mt-8 px-4">
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <form action="/books/submit" method="POST" class="space-y-4">
+        <div>
+          <label for="title" class="block text-gray-700 font-medium">Book Title</label>
+          <input type="text" id="title" name="title" required
+            class="w-full border border-gray-300 rounded-lg p-2 mt-1">
+        </div>
+
+        <div>
+          <label for="author" class="block text-gray-700 font-medium">Author Name</label>
+          <input type="text" id="author" name="author" required
+            class="w-full border border-gray-300 rounded-lg p-2 mt-1">
+        </div>
+
+        <input type="submit" value="Submit Book" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-lg">
+      </input>
+      </form>
+    </div>
+    
+  </main>
+  <div class="flex items-center justify-center mt-5">
+    <a href="/books" class="bg-indigo-600 text-white font-bold py-2 px-4  rounded-lg">Your Books</a>
+  </div>
+ 
+</body>
+</html>

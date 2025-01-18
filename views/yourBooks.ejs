@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Books</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <header class="bg-indigo-600 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-lg font-bold">Book Haven</h1>
+      <nav>
+        <ul class="flex space-x-4">
+          <li><a href="/dashboard" class="hover:underline">Dashboard</a></li>
+          <li><a href="/logout" class="hover:underline">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container mx-auto mt-8 px-4">
+    <% if (user.books.length > 0) { %>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <% user.books.forEach(book => { %>
+          <div class="bg-white shadow-md rounded-lg p-4">
+            <% if (book.coverImageUrl) { %>
+              <img src="<%= book.coverImageUrl %>" alt="<%= book.title %> Cover" class="w-full h-64 object-fit rounded-lg mb-4">
+            <% } else { %>
+              <div class="w-full h-64 bg-gray-200 flex items-center justify-center rounded-lg mb-4">
+                <span class="text-gray-500">No Cover Available</span>
+              </div>
+            <% } %>
+            <h2 class="text-xl font-bold"><%= book.title %></h2>
+            <p class="text-gray-700">By <%= book.author %></p>
+            <p class="text-gray-500 text-sm">Uploaded on <%= book.date %></p>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <p class="text-center text-gray-700 text-xl">No books have been uploaded yet.</p>
+    <% } %>
+  </main>
+</body>
+</html>
