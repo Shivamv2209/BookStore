@@ -20,6 +20,5 @@
     "GENSALT": "@gensalt"
   },
   "ignoreCommand": "git diff --quiet HEAD^ HEAD ./",
-  "nodeVersion": "18.x",
   "framework": null
 }
