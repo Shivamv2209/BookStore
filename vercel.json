@@ -13,11 +13,11 @@
     }
   ],
   "env": {
-    "MONGO_URI": "@mongo_uri",
-    "GOOGLE_CLIENT_ID": "@google_client_id",
-    "GOOGLE_CLIENT_SECRET": "@google_client_secret",
-    "SECRET_KEY": "@secret_key",
-    "GENSALT": "@gensalt"
+    "MONGO_URI": "@MONGO_URI",
+    "GOOGLE_CLIENT_ID": "@GOOGLE_CLIENT_ID",
+    "GOOGLE_CLIENT_SECRET": "@GOOGLE_CLIENT_SECRET",
+    "SECRET_KEY": "@SECRET_KEY",
+    "GENSALT": "@GENSALT"
   },
   "ignoreCommand": "git diff --quiet HEAD^ HEAD ./",
   "framework": null
