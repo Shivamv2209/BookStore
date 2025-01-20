@@ -16,6 +16,8 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.set("view engine", "ejs");
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -34,17 +36,17 @@ app.use(passport.session());
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("signup.ejs");
+  res.render("signup");
 });
 
 app.get("/login", (req, res) => {
-  res.render("login.ejs");
+  res.render("login");
 });
 
 app.get("/BookStore", ensureAuthenticated, async (req, res) => {
   try {
     const user = await user_model.findOne({ email: req.user.email });
-    res.render("bookStore.ejs", { user });
+    res.render("bookStore", { user });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Internal server error.");
@@ -76,7 +78,7 @@ app.get("/logout", (req, res) => {
 app.get("/books", ensureAuthenticated, async (req, res) => {
   try {
     const user = await user_model.findOne({ email: req.user.email }).populate("books");
-    res.render("yourBooks.ejs", { user });
+    res.render("yourBooks", { user });
   } catch (err) {
     console.error(err);
   }
