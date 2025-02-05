@@ -10,6 +10,7 @@ import db from "./config/mongoose-connection.js";
 import books_model from "./models/book.js";
 import axios from "axios";
 import ensureAuthenticated from "./middlewares/auth.js";
+import MongoStore from "connect-mongo";
 
 dotenv.config();
 
@@ -26,6 +27,10 @@ app.use(
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI, // Use your MongoDB Atlas URL
+      ttl: 14 * 24 * 60 * 60, // 14 days expiration
+    }),
     cookie: {
       maxAge: 1000 * 60 * 60 * 24, // 1 day
     },
