@@ -8,7 +8,7 @@ const uri = process.env.MONGO_URI;
 mongoose
 .connect(uri) // only on development level 
 .then(()=>{
-    console.log(`connected`);
+    console.log(`connected to database`);
 })
 .catch((err)=>{
     console.log(err);
